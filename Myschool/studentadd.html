@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+  
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input{
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  /* resize: vertical; */
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  padding-bottom: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  
+}
+.hand:active {
+    cursor: url('/imgages/cursor1.gif');
+    
+}
+.hand { 	width: 1500px; 	height: 500px; 	background: pink; 	cursor:url(/images/cursor1.gif), none;  }  .hand:active {     cursor: url(/images/cursor2.gif), none; }
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <form action="" onsubmit="return myfun()">
+
+<!-- <h2>Responsive Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="col-50">
+        <label for="country">Student_Id</label>
+        <br>
+        <input id="id1" type="" min="1" max="1000"  required>
+      </div>
+      <div class="col-50">
+        <label for="country">Student_Name</label>
+        <br>
+        <input id="Student_Name" type="text" min="1" max="1000"  required>
+<span id="Student_Namee"></span>
+
+      </div>
+      <div class="col-50">
+        <label for="country">Email</label>
+        <br>
+        <input id="Email" type="email" min="1" max="1000"  required>
+        <span id="Emaill"></span>
+      </div>
+        <div class="col-50">
+    <label for="country">Contact_No</label>
+    <br>
+    <input id="Contact_No" type="text"   required>
+    <span id="Contact_Noo"></span>
+  </div>
+  <div class="col-50">
+    <label for="country">Address</label>
+    <br>
+    <input id="id1" type="textarea" min="1" max="1000"  style="height: 60px;" required>
+  </div>
+
+  
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit" style="margin-bottom: -80px;">
+  </div>
+  <!-- <img src="javabike.jfif" alt="" width="80%">-->
+  </form> 
+</div>
+
+</body>
+
+
+<script>
+  function myfun() {
+
+
+    // student name
+
+    var a = document.getElementById("Student_Name").value;
+    var correct_way = /^[A-Za-z ' ']+$/;
+    if (a == "") {
+      document.getElementById("Student_Namee").innerHTML = "**Pleae enter Your Name";
+      return false;
+    }
+
+    if (a.match(correct_way))
+      true;
+    else {
+      document.getElementById("Student_Namee").innerHTML = "**only Char. allow ";
+      return false;
+    };
+
+    // email
+
+    var b = document.getElementById("Email").value;
+    var correct_way1 = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+    if (b == "") {
+      document.getElementById("Emaill").innerHTML = "**Pleae enter email id";
+      return false;
+    }
+
+    if (b.match(correct_way1))
+      true;
+    else {
+      document.getElementById("Emaill").innerHTML = "**Please enter valid email id";
+      return false;
+    }
+
+    // contact number
+    var c = document.getElementById("Contact_No").value;
+    var correct_way2 = /^[0-9]+$/;    if (c == "") {
+      document.getElementById("Contact_Noo").innerHTML = "**Pleae enter Contact No.";
+      return false;
+    }
+
+    if (c.match(correct_way2))
+      true;
+    else {
+      document.getElementById("Contact_Noo").innerHTML = "**only Number allow ";
+      return false;
+    };
+
+    // for designation
+    // var d = document.getElementById("designation").value;
+    // var correct_way3 = /^[A-Za-z ' ']+$/;
+    // if (d == "") {
+    //   document.getElementById("designationn").innerHTML = "**Pleae enter Your Name";
+    //   return false;
+    // }
+
+    // if (d.match(correct_way3))
+    //   true;
+    // else {
+    //   document.getElementById("designationn").innerHTML = "**only Char. allow ";
+    //   return false;
+    // };
+
+    // for age
+
+    // var b = document.getElementById("age").value;
+    // var correct_way1 = /^[0-9]+$/;
+    // if (b <= 17) {
+    //     document.getElementById("agee").innerHTML = "**To enter Dating App you must be minimum 18 year old";
+    //     return false;
+    // }
+
+    // if (b.match(correct_way1))
+    //     true;
+    // else {
+    //     document.getElementById("agee").innerHTML = "**only number char allowed";
+    //     return false;
+    // };
+
+
+
+
+
+
+
+    // var c = document.getElementById("mobile").value;
+    // var correct_way3 = /^[0-9]+$/;
+
+    // if (c == "") {
+    //     document.getElementById("mobilee").innerHTML = "**please enter number";
+    //     return false;
+    // }
+
+    // if (c.match(correct_way3))
+    //     true;
+    // else {
+    //     document.getElementById("mobilee").innerHTML = "**only number allow";
+    //     return false;
+    // }
+
+
+  }
+</script>
+</html>

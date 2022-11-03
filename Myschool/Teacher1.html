@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    input[id=id1] {
+      height: 40px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      /* resize: vertical; */
+    }
+
+    input[id=email] {
+      height: 40px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      /* resize: vertical; */
+    }
+
+    input[id=contact_no] {
+      height: 40px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      /* resize: vertical; */
+    }
+
+    input[id=designation] {
+      height: 40px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      /* resize: vertical; */
+    }
+
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: center;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+  
+
+    .hand:active {
+      cursor: url('/imgages/cursor1.gif');
+
+    }
+
+    span {
+      color: red;
+    }
+
+    .hand {
+      width: 1500px;
+      height: 500px;
+      background: pink;
+      cursor: url(/images/cursor1.gif), none;
+    }
+
+    .hand:active {
+      cursor: url(/images/cursor2.gif), none;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+      .col-25,
+      .col-75,
+      input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+    
+  </style>
+  <script type="text/javascript">
+    var citiesByState = {
+
+      Odisha: ["Bhubaneswar", "Puri", "Cuttack", "Rourkela", "Brahmapur", "Puri", "Sambalpur"],
+      Maharashtra: ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Bhusawal"],
+      Kerala: ["kochi", "Kanpur", "Kozhikode", "Thrissur", "Malappuram"],
+      Gujarat: ["Ahmedabad", "Surat", "Rajkot", "Junagadh", "Vadodara"],
+      UttarPradesh: ["Gorakhpur", "Kanpur", "Lucknow", "Agra"],
+      Panjab: ["Chandigarh", "Amritsar", "Jalandhar", "Ludhiana", "Patiala", "Kapurthala"],
+      Goa: ["Vasco-da-Gama", "Ponda", "Margao", "Mapusa", " Goa Velha"],
+      Andhra_Prades: ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Tirupati"],
+      Arunachal_Pradesh: ["Tawang", "Bhismaknagar", "Pasighat", "Ziro", "Bomdila"],
+      Assam: ["Guwahati", "Tezpur", "Dibrugarh", "Silchar", "North Lakhimpur"],
+      Bihar: ["Gaya", "Biharsharif", "Darbhanga", "Bhagalpur"],
+      Chhattisgarh: ["Bilaspur", "Korba", "Durg-Bhilainagar", "Raigarh", "Rajnandgaon"],
+      Haryana: ["	Faridabad", "Gurgaon", "Sonipat", "Panipat", "Ambala"],
+      Himachal_Pradesh: ["Dharamshala", "Mandi", "Solan", "Bilaspur", "Chamba"],
+      Jharkhand: ["Ranchi", "Bokaro Steel City", "Jamshedpur", "Deoghar", "Hazaribagh ", "Dhanbad"],
+      Karnataka: ["Bengaluru", "Mysore", "Davangere", "Mangalore", "Hubli-Dharwad", "Belgaum"],
+      Madhya_Pradesh: ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar"],
+      Manipur: ["Imphal", "Bishnupur", "Ukhrul", "Tamenglong", "Chandel", "Senapati"],
+      Meghalaya: ["Shillong", "Cherrapunji", "Tura", "Jowai", "Baghmara", "Nongpoh"],
+      Mizoram: ["Aizawl", "Lunglei", "Serchhip", "Champhai", "Tuipang", "Mamit"],
+      Nagaland: ["Kohima", "Tuensang", "Zunheboto", "Mokokchung", "Kiphire Sadar", "Phek"],
+      Rajasthan: ["Jaipur", "Bikaner", "Jaisalmer", "Jodhpur", "Udaipur", "Ajmer"],
+      Sikkim: ["Gangtok", "Namchi", "Gyalshing", "Mangan", "Rabdentse"],
+      Tamil_Nadu: ["Chennai", "Tiruchirappalli", "Madurai", "Erode", "Vellore", "Coimbatore"],
+      Telangana: ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Adilabad", "Khammam"],
+      Tripura: ["Agartala", "Amarpur", "Kumarghat", "Udaipur", "Gakulnagar ", "Kunjaban"],
+      Uttar_Pradesh: ["Lucknow", "Noida", "Varanasi", "Allahabad", "Agra", "Kanpur"],
+      Uttarakhand: ["Dehradun", "Haridwar", "Roorkee", "Rishikesh", "Kashipur", "Haldwani"],
+      West_Bengal: ["Kolkata", "Darjeeling", "Siliguri", "Asansol", "Howrah", "Durgapur"]
+    }
+    function makeSubmenu(value) {
+      if (value.length == 0) document.getElementById("citySelect").innerHTML = "<option></option>";
+      else {
+        var citiesOptions = "";
+        for (cityId in citiesByState[value]) {
+          citiesOptions += "<option>" + citiesByState[value][cityId] + "</option>";
+        }
+        document.getElementById("citySelect").innerHTML = citiesOptions;
+      }
+    }
+    function displaySelected() {
+      var country = document.getElementById("countrySelect").value;
+      var city = document.getElementById("citySelect").value;
+      alert(country + "\n" + city);
+    }
+    function resetSelection() {
+      document.getElementById("countrySelect").selectedIndex = 0;
+      document.getElementById("citySelect").selectedIndex = 0;
+    }
+  </script>
+</head>
+
+<body>
+  <form action="teacheradd.php" method="post" onsubmit="return myfun()">
+
+    <!-- <h2>Responsive Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+
+    <div class="container"s style="  border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    padding-bottom: 5%;
+    margin-left: 30%;
+    margin-right: 30%;">
+      <form action="/action_page.php">
+        <!-- <div class="col-50">
+        <label for="country">Teacher_Id</label>
+        <br>
+        <input id="id1" name="Teacher_Id" type="" min="1" max="1000"  required>
+      </div> -->
+        <div class="col-50">
+          <label for="country">Teacher_Name</label>
+          <br>
+          <input id="teacher_name" name="Teacher_Name" type="text" min="1" max="1000" required>
+          <span id="teacher_namee"></span>
+        </div>
+        <div class="col-50">
+          <label for="country">Designation</label>
+          <br>
+          <input id="designation" type="" min="1" max="1000" required>
+
+          <span id="designationn"></span>
+        </div>
+        <div class="col-50">
+          <label for="country">Email</label>
+          <br>
+          <input id="email" type="email" min="1" max="1000" required>
+          <span id="emaill"></span>
+        </div>
+        <div class="col-50">
+          <label for="country">Mobile_Number</label>
+          <br>
+          <input id="contact_no" type="contact_no" min="10" max="10">
+          <span id="contact_noo"></span>
+        </div>
+        <div class="col-50">
+          <label for="country">Gender</label>
+          <br>
+
+          <input type="radio" name="gender" value="male"> Male
+          <input type="radio" name="gender" value="female"> Female
+          <input type="radio" name="gender" value="other"> Other
+        </div>
+        <div class="col-50">
+          <label for="country">DOB</label>
+          <br>
+          <input id="id1" type="date" required>
+        </div>
+        <div class="col-50">
+          <label for="country">Alternative_Mobile_Number</label>
+          <br>
+          <input id="contact_no" type="contact_no" min="10" max="10">
+          <span id="contact_noo"></span>
+        </div>
+        <div class="col-50">
+          <label for="State">State</label><br>
+          <select class="select" name="name2" id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+            <option value="" disabled selected>Choose State</option>
+
+
+
+            <option> Andhra_Prades</option>
+            <option>Arunachal_Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya_Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil_Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar_Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+
+
+          </select>
+
+
+        </div>
+        <div class="col-50">
+          <label for="State">City</label><br>
+          <select class="select" id="citySelect" size="1">
+            <option value="" disabled selected>Choose City</option>
+            <option></option>
+
+          </select>
+        </div>
+        <div class="col-50">
+          <label for="country">PAN_Number</label>
+          <br>
+          <input id="contact_no" type="contact_no" min="10" max="10">
+          <span id="contact_noo"></span>
+        </div>
+        <div class="col-50">
+          <label for="country">Account_Number</label>
+          <br>
+          <input id="contact_no" type="contact_no" min="10" max="10">
+          <span id="contact_noo"></span>
+        </div>
+        <div class="col-50">
+          <label for="country">Choose_Photo</label>
+          <input id="upload" accept="image/gif, image/jpeg, image/png" class='upload' @change="loadImageInput"
+            type="file" multiple required>
+        </div>
+        <br>
+        <div class="row">
+          <input type="submit" value="Submit" style="margin-bottom: -80px;">
+        </div>
+        <!-- <img src="javabike.jfif" alt="" width="80%">-->
+      </form>
+    </div>
+  </form>
+  <script>
+    function myfun() {
+
+
+      // teacher name
+
+      var a = document.getElementById("teacher_name").value;
+      var correct_way = /^[A-Za-z ' ']+$/;
+      if (a == "") {
+        document.getElementById("teacher_namee").innerHTML = "**Pleae enter Your Name";
+        return false;
+      }
+
+      if (a.match(correct_way))
+        true;
+      else {
+        document.getElementById("teacher_namee").innerHTML = "**only Char. allow ";
+        return false;
+      };
+
+      // email
+
+      var b = document.getElementById("email").value;
+      var correct_way1 = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+      if (b == "") {
+        document.getElementById("emaill").innerHTML = "**Pleae enter email id";
+        return false;
+      }
+
+      if (b.match(correct_way1))
+        true;
+      else {
+        document.getElementById("emaill").innerHTML = "**Please enter valid email id";
+        return false;
+      }
+
+      // contact number
+      var c = document.getElementById("contact_no").value;
+      var correct_way2 = /^[0-9]+$/;
+      if (c == "") {
+        document.getElementById("contact_noo").innerHTML = "**Pleae enter Contact No.";
+        return false;
+      }
+
+      if (c.match(correct_way2))
+        true;
+      else {
+        document.getElementById("contact_noo").innerHTML = "**only Number allow ";
+        return false;
+      };
+
+      // for designation
+      var d = document.getElementById("designation").value;
+      var correct_way3 = /^[A-Za-z]+$/;
+      if (d == "") {
+        document.getElementById("designationn").innerHTML = "**Pleae enter Your Name";
+        return false;
+      }
+
+      if (d.match(correct_way3))
+        true;
+      else {
+        document.getElementById("designationn").innerHTML = "**only Char. allow ";
+        return false;
+      };
+
+      // for age
+
+      // var b = document.getElementById("age").value;
+      // var correct_way1 = /^[0-9]+$/;
+      // if (b <= 17) {
+      //     document.getElementById("agee").innerHTML = "**To enter Dating App you must be minimum 18 year old";
+      //     return false;
+      // }
+
+      // if (b.match(correct_way1))
+      //     true;
+      // else {
+      //     document.getElementById("agee").innerHTML = "**only number char allowed";
+      //     return false;
+      // };
+
+
+
+
+
+
+
+      // var c = document.getElementById("mobile").value;
+      // var correct_way3 = /^[0-9]+$/;
+
+      // if (c == "") {
+      //     document.getElementById("mobilee").innerHTML = "**please enter number";
+      //     return false;
+      // }
+
+      // if (c.match(correct_way3))
+      //     true;
+      // else {
+      //     document.getElementById("mobilee").innerHTML = "**only number allow";
+      //     return false;
+      // }
+
+
+    }
+  </script>
+
+
+</body>
+
+</html>
+<script>
+
+  function myFunction() {
+
+  } 
+</script>

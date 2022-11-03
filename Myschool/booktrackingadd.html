@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    input[id=id1] {
+      height: 40px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      
+    }
+
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: center;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 10px;
+      padding-bottom: 5%;
+      margin-left: 30%;
+      margin-right: 30%;
+
+    }
+
+    .hand:active {
+      cursor: url('/imgages/cursor1.gif');
+
+    }
+
+    .hand {
+      width: 1500px;
+      height: 500px;
+      background: pink;
+      cursor: url(/images/cursor1.gif), none;
+    }
+
+    .hand:active {
+      cursor: url(/images/cursor2.gif), none;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+      .col-25,
+      .col-75,
+      input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="" onsubmit="return  myfun()">
+  <!-- <h2>Responsive Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+
+  <div class="container">
+    <form action="/action_page.php">
+        <div class="col-50">
+            <label for="country">Book_Id</label>
+            <br>
+            <input id="id1" type="text" min="1" max="1000" required>
+          </div>
+      <div class="col-50">
+        <label for="country">Book_Name</label>
+        <br>
+        <input id="Book_Name" type="text" min="1" max="1000" required>
+        <span id="Book_Namee"></span>
+      </div>
+      <div class="col-50">
+        <label for="country">ISBN_No</label>
+        <br>
+        <input id="id1" type="" min="1" max="1000" required>
+      </div>
+      <div class="col-50">
+        <label for="country">Issue_To</label>
+        <br>
+        <input id="id1" type="text" min="1" max="1000" required>
+      </div>
+      <div class="col-50">
+        <label for="country">Issue_Date</label>
+        <br>
+        <input id="id1" type="date" min="1" max="1000" required>
+      </div>
+      <div class="col-50">
+        <label for="country">Return_Date</label>
+        <br>
+        <input id="id1" type="date" min="1" max="1000" required>
+      </div>
+      <div class="col-50">
+        <label for="country">Time</label>
+        <br>
+        <input id="id1" type="time" min="1" max="1000" style="height: 40px;" required>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Status</label>
+        </div>
+      <div class="col-50">
+        <select id="Select Section" name="select Section">
+          <option value="">Approval</option>
+          <option value="">Not-Approval</option>
+      
+        </select>
+      </div>
+    </div>
+      <br>
+      <div class="row">
+        <input type="submit" value="Submit" style="margin-bottom: -80px;">
+      </div>
+      <!-- <img src="javabike.jfif" alt="" width="80%">-->
+    </form>
+  </div>
+
+</body>
+
+</html>
+<script>
+  function myfun() {
+
+
+    // book name
+
+    var a = document.getElementById("Book_Name").value;
+    var correct_way = /^[A-Za-z ' ']+$/;
+    if (a == "") {
+      document.getElementById("Book_Namee").innerHTML = "**Pleae enter book  Name";
+      return false;
+    }
+
+    if (a.match(correct_way))
+      true;
+    else {
+      document.getElementById("Book_Namee").innerHTML = "**only Char. allow ";
+      return false;
+    };
+  }
+
+</script>

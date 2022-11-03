@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    input{
+      height: 40px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      
+    }
+
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: center;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 10px;
+      padding-bottom: 5%;
+      margin-left: 30%;
+      margin-right: 30%;
+
+    }
+
+    .hand:active {
+      cursor: url('/imgages/cursor1.gif');
+
+    }
+
+    .hand {
+      width: 1500px;
+      height: 500px;
+      background: pink;
+      cursor: url(/images/cursor1.gif), none;
+    }
+
+    .hand:active {
+      cursor: url(/images/cursor2.gif), none;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+      .col-25,
+      .col-75,
+      input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <h2>Responsive Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+<form action="" onsubmit="return myfun()">
+  <div class="container">
+    <form action="/action_page.php">
+
+      <div class="col-50">
+        <label for="country">Book_Name</label>
+        <br>
+        <input id="book_name" type="text" min="1" max="1000" required>
+        <span id="book_namee"></span>
+      </div>
+      <div class="col-50">
+        <label for="country">ISBN_No</label>
+        <br>
+        <input id="contact_no" type="" min="1" max="1000" required>
+        <span id="contact_noo"></span>
+      </div>
+      <div class="col-50">
+        <label for="country">Publisher</label>
+        <br>
+        <input id="email" type="" min="1" max="1000" required>
+        <span id="emaill"></span>
+      </div>
+      <div class="col-50">
+        <label for="country">Author</label>
+        <br>
+        <input id="designation" type="" min="1" max="1000" style="height: 40px;" required>
+        <span id="designationn"></span>
+      </div>
+      <div class="col-50">
+        <label for="country">Choose_File</label>
+        <input id="upload" accept="image/gif, image/jpeg, image/png" class='upload' @change="loadImageInput" type="file"
+          multiple required>
+      </div>
+      <br>
+      <div class="row">
+        <input type="submit" value="Submit" style="margin-bottom: -80px;">
+      </div>
+      <!-- <img src="javabike.jfif" alt="" width="80%">-->
+    </form>
+  </div>
+  
+</body>
+<script>
+  function myfun() {
+  
+  
+    // teacher name
+  
+    var a = document.getElementById("book_name").value;
+    var correct_way = /^[A-Za-z ' ']+$/;
+    if (a == "") {
+        document.getElementById("book_namee").innerHTML = "**Pleae enter Your Name";
+        return false;
+    }
+  
+    if (a.match(correct_way))
+        true;
+    else {
+        document.getElementById("book_namee").innerHTML = "**only Char. allow ";
+        return false;
+    };
+  
+  // email
+    
+    var b = document.getElementById("email").value;
+    var correct_way1 = /^[A-Za-z ' ']+$/;
+    if (b == "") {
+        document.getElementById("emaill").innerHTML = "**Pleae enter Publisher name";
+        return false;
+    }
+  
+    if (b.match(correct_way1))
+        true;
+    else {
+        document.getElementById("emaill").innerHTML = "****only Char. allow";
+        return false;
+    }
+  
+  // contact number
+    var c = document.getElementById("contact_no").value;
+    var correct_way2 = /^[0-9]+$/;
+    if (c =="") {
+        document.getElementById("contact_noo").innerHTML = "**Pleae enter Isbn No.";
+        return false;
+    }
+  
+    if (c.match(correct_way2))
+        true;
+    else {
+        document.getElementById("contact_noo").innerHTML = "**only Number allow ";
+        return false;
+    };
+  
+  // for designation
+    var d = document.getElementById("designation").value;
+    var correct_way3 = /^[A-Za-z ' ']+$/;
+    if (d == "") {
+        document.getElementById("designationn").innerHTML = "**Pleae enter Your Author Name";
+        return false;
+    }
+  
+    if (d.match(correct_way3))
+        true;
+    else {
+        document.getElementById("designationn").innerHTML = "**only Char. allow ";
+        return false;
+    };
+  
+    // for age
+  
+    // var b = document.getElementById("age").value;
+    // var correct_way1 = /^[0-9]+$/;
+    // if (b <= 17) {
+    //     document.getElementById("agee").innerHTML = "**To enter Dating App you must be minimum 18 year old";
+    //     return false;
+    // }
+  
+    // if (b.match(correct_way1))
+    //     true;
+    // else {
+    //     document.getElementById("agee").innerHTML = "**only number char allowed";
+    //     return false;
+    // };
+  
+  
+  
+  
+  
+  
+  
+    // var c = document.getElementById("mobile").value;
+    // var correct_way3 = /^[0-9]+$/;
+  
+    // if (c == "") {
+    //     document.getElementById("mobilee").innerHTML = "**please enter number";
+    //     return false;
+    // }
+  
+    // if (c.match(correct_way3))
+    //     true;
+    // else {
+    //     document.getElementById("mobilee").innerHTML = "**only number allow";
+    //     return false;
+    // }
+  
+  
+  }
+  </script>
+</html>

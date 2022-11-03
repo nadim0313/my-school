@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin</title>
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="stud.css">
+    <link rel="stylesheet" href="zazz.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="book.css"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 500px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .dropbtn {
+            /* background-color: #8513c7; */
+            color: black;
+            /* padding: 14px 100px 12px 100px; */
+            width: 240px;
+            height: 40px;
+            font-size: 16px;
+            padding-top: 5px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #d2d3d73b;
+        }
+
+        #myInput {
+            box-sizing: border-box;
+            background-image: url('searchicon.png');
+            background-position: 14px 12px;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            padding: 14px 20px 20px 45px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myInput:focus {
+            outline: 3px solid #ddd;
+        }
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-left: 2px;
+
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f6f6f6;
+            min-width: 230px;
+            padding: 12px 16px;
+            /* overflow: auto; */
+            border: 1px solid #ddd;
+            z-index: 1;
+
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        /* .show {
+            display: block;
+        } */
+
+        img {
+            /* margin-top: 0px;
+            margin-left: 15px;
+            height: 50px;
+            width: 25px;
+            border-radius: 50px; */
+            /* object-fit: cover; */
+            text-align: right;
+        }
+
+        #img {
+            height: 10px;
+            width: 10px;
+        }
+
+      #div{
+       float: right;
+      }
+      #class{
+        width: 120px;
+      }
+      table, td, th {
+  border: 1px solid black;
+}
+
+table {
+    margin-top: 30px;
+  border-collapse: collapse;
+  width: 50%;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #377b96;
+  color: white;
+}
+    </style>
+
+</head>
+
+<body>
+
+
+
+   
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <!-- <i class='bx bxs-smile'></i> -->
+
+
+
+            <span style="color: black;" class="text">
+                <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> MY SCHOOL</b></h3>
+            </span>
+            <img  style="margin-top: 0px;margin-left: 15px;height: 50px;width: 25px;  border-radius: 50px;" src="QWE.png">
+
+        </a>
+        <!-- 
+        <div class="container">
+            <div class="">
+                <button onclick="myFunction()" class="dropbtn">Dashboard</button>
+                <!-- <div id="myDropdown" class="dropdown-content"> -->
+        <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
+
+        <!-- 
+                </div>
+            </div>
+        </div> -->
+        <br>
+        <!--  
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">User</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                    <a href="Teacher.html" target="_blank">Teacher</a>
+                    <a href="student.html" target="_blank">Student</a>
+
+                    <!-- <a href="#blog">Blog</a>
+              <a href="#contact">Contact</a>
+              <a href="#custom">Custom</a>
+              <a href="#support">Support</a>
+              <a href="#tools">Tools</a> -->
+
+
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">User</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
+
+                    <a href="dashboard.html">User</a>
+                    <!-- <a href="Teacher.html">Teacher</a>
+            
+                    <a href="supportstaff.html">Support Staff</a> -->
+
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction1()" class="dropbtn">Book</button>
+                <div id="myDropdown1" class="dropdown-content">
+                    <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction1()"> -->
+                    <a href="Ebook.html" target="">Book</a>
+                    <!-- <a href="virtual.html" target="">Virtual Classroom</a>
+                    <a href="subject.html" target="">Subject</a>
+                    <a href="daillyattendance.html" target="">Daily Attendance</a> -->
+                    <!-- <a href="Syllbus.html" target="">Syllabus</a>  -->
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction2()" class="dropbtn">Book-Tracking</button>
+                <div id="myDropdown2" class="dropdown-content">
+                    <!-- <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction2()"> -->
+                    <a href="booktracking1.html">Book-Tracking</a>
+                    <!-- <a href="Syllbus.html">Syllabus</a> -->
+                    <!-- <a href="grade.html">Grade</a> -->
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction2()" class="dropbtn">Inventory</button>
+                <div id="myDropdown2" class="dropdown-content">
+                    <!-- <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction2()"> -->
+                    <a href="inventary.html">Inventory</a>
+                    <!-- <a href="Syllbus.html">Syllabus</a> -->
+                    <!-- <a href="grade.html">Grade</a> -->
+
+                </div>
+            </div>
+        </div><br>
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction3()" class="dropbtn">Pre-Book-Request</button>
+                <div id="myDropdown3" class="dropdown-content">
+                    <!-- <input type="text" placeholder="Search.." id="myInput3" onkeyup="filterFunction3()"> -->
+                    <a href="Prebook.html">Pre-Book-Request</a>
+                    <!-- <a href="marks.html">Marks </a> -->
+                 
+
+                    <!-- <a href="student.html" target="_blank">Back Office</a> -->
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction4()" class="dropbtn">Notification</button>
+                <div id="myDropdown4" class="dropdown-content">
+                    <a href="notification.html">Notification</a>
+                    <!-- <a href="booktracking.html">Book Tracking </a> -->
+
+                    <!-- <input type="text" placeholder="Search.." id="myInput4" onkeyup="filterFunction4()"> -->
+                    <!-- <a href="librarymanagment.html" target="_blank">Library Management</a>
+                    <a href="noticeboard.html" target="_blank">Notice Board</a> -->
+                    <!-- <a href="student.html" target="_blank">Back Office</a> -->
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- <div class="container">
+            <div class="dropdown">
+                <button onclick="myFunction5()" class="dropbtn"> <a style="color: black;" href="transport.html"> Setting</a></button> -->
+                <!-- <div id="myDropdown5" class="dropdown-content"> -->
+                    <!-- <input type="text" placeholder="Search.." id="myInput4" onkeyup="filterFunction4()"> -->
+                    <!-- <a href="exam.html" target="_blank">Exam</a>
+                    <a href="grade.html" target="_blank">Grade</a> -->
+                    <!-- <a href="student.html" target="_blank">Back Office</a> -->
+                <!-- </div>
+            </div>
+        </div> -->
+        <br>
+
+
+    
+        <br>
+
+
+        
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <!-- <nav> -->
+        <!-- <i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#"> -->
+        <!-- <div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div> -->
+        <!-- </form> -->
+        <!-- <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png">
+            </a> -->
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <h1>Student</h1>
+
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="script.js"></script>
+
+        <!-- <i class='bx bxs-calendar-check'></i> -->
+        <div class="head-title">
+            <div class="left">
+                <!-- <h1>Student</h1> -->
+
+
+            </div>
+
+
+            <!-- MAIN CARDS ENDS HERE -->
+
+            <div class="charts__right">
+                <div class="charts__right__title">
+                    <div class="row content">
+                        <!-- <div class="row page-heading">
+                            <h4 style="text-align: center;  color: white;  width: 140px; height: 40px; background-color:#377b96;margin-left: 20px; margin-bottom: 20px;margin-right: -1px;"  >Student</h4>
+                        </div> -->
+                        <form action="studentadd.html">
+                           
+                            <select name="class" id="class" class="btn btn-light" style="width: 180px; height: 35px;" required>
+                              <option value="volvo">Class</option>
+                              <option value="saab">2nd</option>
+                              <option value="opel">3rd</option>
+                              <option value="audi">4th</option>
+                            </select>&nbsp;&nbsp;
+                           
+                             
+                              
+                              <input type="text" placeholder="Roll No" id="class" class="btn btn-light" style="width: 180px; height: 35px;margin-left: 30px;" required>
+
+                            &nbsp;&nbsp;
+                            <!-- <input type="text" placeholder="Search.." style="width:220px ;height: 35px; border-radius: 3px solid gray; margin-left: 30px;"> -->
+                            
+                                <button class="btn btn-light" style="height: 35px; width: 170px; margin-left: 30px;">Add Student</button>
+                            
+                        
+                            <!-- <div class="w3-dropdown-hover">
+                                <button class="w3-button w3-black">Hover Over Me!</button>
+                                <div class="w3-dropdown-content w3-bar-block w3-border">
+                                  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                                  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                                  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                                </div>
+                              </div> -->
+
+
+                        </div> 
+
+                    </div>
+                    <table id="customers">
+                        <tr>
+                          <th>ID</th>
+                          
+                          <th>Email</th>
+                          <th>Contact No</th>
+                          <th>Address</th>
+                          <th>Edit / Delete</th>
+                        </tr>
+                        <tr>
+                          <td>123</td>
+                          <td>Admin@123</td>
+                          <td>8754883573</td>
+                          <td>Pune </td>
+                          <td> <a href="studentadd.html"><i class="fa fa-edit"></i></a> &nbsp; &nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-trash" style="color: red;"></i></a></td>
+                        </tr>
+                        <tr>
+                          <td>Lois</td>
+                          <td>Griffin</td>
+                          <td>$150</td>
+                          <td>Kharadi</td>
+                          <td> <a href="studentadd.html"><i class="fa fa-edit"></i></a> &nbsp; &nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-trash" style="color: red;"></i></a></td>
+                          
+                        </tr>
+                        <tr>
+                          <td>Joe</td>
+                          <td>Swanson</td>
+                          <td>$300</td>
+                          <td>Mumbai</td>
+                          <td> <a href="studentadd.html"><i class="fa fa-edit"></i></a> &nbsp; &nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-trash" style="color: red;"></i></a></td>
+                          
+                        </tr>
+                        <tr>
+                          <td>Cleveland</td>
+                          <td>Brown</td>
+                          <td>$250</td>
+                          <td>Nashik</td>
+                          <td> <a href="staffadd.html"><i class="fa fa-edit"></i></a> &nbsp; &nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-trash" style="color: red;"></i></a></td>
+                          
+                        </tr>
+                      </table>
+                      <br>
+                     
+    </section>
+    <div class="container">
+<button class="btn btn-light">Add Student</button>
+</div>
+    <!-- CONTENT -->
+
+
+    <script src="script.js"></script>
+
+
+
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "";
+                }
+            }
+        }
+
+        function myFunction1() {
+            document.getElementById("myDropdown1").classList.toggle("show");
+        }
+
+
+
+
+        function filterFunction1() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput1");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown1");
+            b = div.getElementsByTagName("b");
+            for (i = 0; i < b.length; i++) {
+                txtValue = b[i].textContent || b[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    b[i].style.display = "";
+                } else {
+                    b[i].style.display = "none";
+                }
+            }
+        }
+
+        function myFunction2() {
+            document.getElementById("myDropdown2").classList.toggle("show");
+        }
+
+        function filterFunction2() {
+            var input, filter, ul, li, c, i;
+            input = document.getElementById("myInput2");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown2");
+            c = div.getElementsByTagName("c");
+            // for (i = 0; i < c.length; i++) {
+            //     txtValue = c[i].textContent || c[i].innerText;
+            //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            //         c[i].style.display = "";
+            //     } else {
+            //         c[i].style.display = "none";
+            //     }
+            // }
+        }
+
+        function myFunction3() {
+            document.getElementById("myDropdown3").classList.toggle("show");
+        }
+
+        function filterFunction3() {
+            var input, filter, ul, li, d, i;
+            input = document.getElementById("myInput3");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown3");
+            d = div.getElementsByTagName("d");
+            for (i = 0; i < d.length; i++) {
+                txtValue = d[i].textContent || d[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    d[i].style.display = "";
+                } else {
+                    d[i].style.display = "none";
+                }
+            }
+        }
+
+        function myFunction4() {
+            document.getElementById("myDropdown4").classList.toggle("show");
+        }
+
+        function filterFunction4() {
+            var input, filter, ul, li, e, i;
+            input = document.getElementById("myInput4");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown4");
+            e = div.getElementsByTagName("e");
+            for (i = 0; i < e.length; i++) {
+                txtValue = e[i].textContent || e[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    e[i].style.display = "";
+                } else {
+                    e[i].style.display = "none";
+                }
+            }
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
